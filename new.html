@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            height: 90vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+        }
+
+        form input, form textarea {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        form button {
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+        }
+
+        #message {
+            margin-top: 10px;
+            color: green;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1 class="logo">MySite</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h2>Hello, I'm a Web Developer</h2>
+    <p>I build clean and modern websites.</p>
+    <button onclick="scrollToContact()">Contact Me</button>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>This is a simple portfolio website project you can upload to GitHub.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <form onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <p id="message"></p>
+</section>
+
+<script>
+    function scrollToContact() {
+        document.getElementById("contact").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        document.getElementById("message").innerText = "Message sent successfully!";
+    }
+</script>
+
+</body>
+</html>
